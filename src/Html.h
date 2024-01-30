@@ -1,10 +1,10 @@
 /*
  * @Author: Z丶平凡
  * @Date: 2024-01-30 14:25:07
- * @LastEditTime: 2024-01-30 14:31:53
+ * @LastEditTime: 2024-01-30 15:46:12
  * @LastEditors: Z丶平凡
  * @Description: In User Settings Edit
- * @FilePath: \esp32s3\src\Html.h
+ * @FilePath: \WIFI_MacReplicator\src\Html.h
  */
 
 #ifndef _Html_H_
@@ -22,7 +22,8 @@ const char Html_index[] PROGMEM = R"rawliteral(
 <body>
   <form method='POST' action='/macsave'>
     <div>
-      <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WIFI MAC 克隆神器</h3>
+      <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WIFI MAC 测试工具</h3>
+      	  <h5>警告:请勿用于非法用途!您只能在自己的网络和设备上使用它!</h5>
     </div>
   <div>
 	<label for='mac-input'>设置SSID:&nbsp;</label> <input type='text' name='ssiddata' id='mac-input' value='%SSID%' placeholder='请输入非中文SSID,选填'> 
