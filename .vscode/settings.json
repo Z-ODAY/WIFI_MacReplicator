@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "algorithm": "cpp",
+        "cmath": "cpp",
+        "new": "cpp",
+        "string_view": "cpp",
+        "regex": "cpp",
+        "*.tcc": "cpp",
+        "optional": "cpp",
+        "random": "cpp",
+        "limits": "cpp",
+        "utility": "cpp",
+        "bitset": "cpp",
+        "string": "cpp"
+    }
+}
