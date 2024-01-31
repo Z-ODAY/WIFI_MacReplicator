@@ -14,6 +14,8 @@
 
 
 void TwinkleLed(uint16_t Mdelay,uint16_t TwinkleNum);
+void LedInit(void);
+void RerstCompleteLed(void);
 
 
 

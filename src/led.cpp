@@ -1,14 +1,61 @@
 /*
  * @Author: Z丶平凡
  * @Date: 2024-01-30 14:25:07
- * @LastEditTime: 2024-01-30 14:31:53
+ * @LastEditTime: 2024-01-31 20:06:10
  * @LastEditors: Z丶平凡
  * @Description: In User Settings Edit
- * @FilePath: \esp32s3\src\Html.h
+ * @FilePath: \WIFI_MacReplicator\src\led.cpp
  */
 
 #include <Arduino.h>
 #include <led.h>
+#include <FastLED.h>
+
+
+
+#define NUM_LEDS 1
+
+#define DATA_PIN 48
+#define CLOCK_PIN 13
+
+CRGB leds[NUM_LEDS];
+
+
+
+void LedInit()
+{
+  FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);  // GRB ordering is assumed
+  leds[0] = CRGB::Black;
+  FastLED.setBrightness(20);
+  FastLED.show();
+}
+
+
+
+void LedCountrol(uint8_t NewStatus)
+{
+  if (NewStatus)
+  {
+    leds[0] = CRGB::Green;
+    FastLED.setBrightness(20);
+    FastLED.show();
+  }
+  else
+  {
+    leds[0] = CRGB::Black;
+    FastLED.setBrightness(20);
+    FastLED.show();
+  }
+}
+
+
+
+void RerstCompleteLed()
+{
+    leds[0] = CRGB::Red;
+    FastLED.setBrightness(20);
+    FastLED.show();
+}
 
 
 
@@ -22,11 +69,11 @@ void TwinkleLed(uint16_t Mdelay,uint16_t TwinkleNum)
     {
       if (Toggle == 0)
       {
-        digitalWrite(8,HIGH);
+        LedCountrol(1);
       }
       else
       {
-        digitalWrite(8,LOW);
+        LedCountrol(0);
       }
       Toggle =~Toggle;
       delay(Mdelay);
@@ -36,11 +83,11 @@ void TwinkleLed(uint16_t Mdelay,uint16_t TwinkleNum)
   {
     if (Toggle == 0)
     {
-      digitalWrite(8,HIGH);
+      LedCountrol(1);
     }
     else
     {
-      digitalWrite(8,LOW);
+      LedCountrol(0);
     }
     Toggle =~Toggle;
     delay(Mdelay);

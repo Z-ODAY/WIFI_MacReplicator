@@ -1,7 +1,7 @@
 /*
  * @Author: Z丶平凡
  * @Date: 2024-01-30 14:25:07
- * @LastEditTime: 2024-01-30 17:52:45
+ * @LastEditTime: 2024-01-31 20:13:36
  * @LastEditors: Z丶平凡
  * @Description: In User Settings Edit
  * @FilePath: \WIFI_MacReplicator\src\main.cpp
@@ -18,14 +18,7 @@
 #include <string.h>
 #include <Html.h>
 #include <led.h>
-#include <FastLED.h>
 
-#define NUM_LEDS 1
-
-#define DATA_PIN 48
-#define CLOCK_PIN 13
-
-CRGB leds[NUM_LEDS];
 
 #define wifi_ap_ssid  "WIFI Mac Replicator"   /*默认wifi SSID*/
 #define wifi_ap_password "12345678"           /*默认wifi 密码*/
@@ -59,10 +52,7 @@ uint8_t OperationFlag =0;   /*存储操作标志-1-有操作-0无操作*/
 
 void setup() 
 {
-  FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);  // GRB ordering is assumed
-  leds[0] = CRGB::Red;
-  FastLED.show();
-  pinMode(8,OUTPUT);
+  LedInit();
   pinMode(0,INPUT);
   TwinkleLed(50,20);
   #if (DebugUsart)
@@ -388,7 +378,7 @@ void loop()
 
       EEPROM.write(SsidAddress, 0); 
       EEPROM.commit();
-      digitalWrite(8,LOW);            /*操作完成-LED常亮*/
+      RerstCompleteLed();
       while (!digitalRead(ResetPin))  /*等待复位按键释放*/
       delay(500);
       ESP.restart();
