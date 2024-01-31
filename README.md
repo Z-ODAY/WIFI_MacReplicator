@@ -14,7 +14,7 @@
 
 使用方法如下 : 
 
-* 首先你可以选择安装 PlatformIO 对固件进行编译和烧录或者是用我提供的firmware.bin文件(放在firmwarebin文件夹下)直接烧录进ESP32S3的MCU里面
+* 首先你可以选择安装 PlatformIO 对固件进行编译和烧录或者是用我提供的firmware.bin文件(放在firmwarebin文件夹下)直接烧录进ESP32S3里面
 
 * 购买一片ESP32-S3-WROOM-1模组。
 
